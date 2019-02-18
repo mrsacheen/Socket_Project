@@ -21,14 +21,24 @@ while True:
         if capitalizedSentence == 'W0674908':
             connectionSocket.send("Hi, pleased to meet you.".encode())
             connectionSocket.send(capitalizedSentence.encode())
+            print('W0674908 Server: GOT', capitalizedSentence)
         elif capitalizedSentence == 'REQTIME':
                 connectionSocket.send(time.encode())
+                print('W0674908 Server: GOT', capitalizedSentence)
         elif capitalizedSentence == 'REQDATE':
                         connectionSocket.send(date.encode())
+                        print('W0674908 Server: GOT', capitalizedSentence)
         elif capitalizedSentence == 'REQIP':
                                 connectionSocket.send(myIP.encode())
+                                print('W0674908 Server: GOT', capitalizedSentence)
+        elif capitalizedSentence == 'ECHO README':
+                                        capitalizedSentence =capitalizedSentence.replace('ECHO','')
+                                        connectionSocket.send(capitalizedSentence.encode())
+                                        print('W0674908 Server: GOT ECHO')
                                 
         #connectionSocket.send(capitalizedSentence.encode())
-        print('W0674908 Server: GOT', capitalizedSentence)
-        connectionSocket.close()
+        #print('W0674908 Server: GOT', capitalizedSentence)
+        elif capitalizedSentence == 'BYE':
+                                                print('See ya Later')
+                                                connectionSocket.close()
 
